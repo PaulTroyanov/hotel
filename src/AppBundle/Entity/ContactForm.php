@@ -18,6 +18,7 @@ class ContactForm
 
     /**
      * @Assert\NotBlank()
+     * @Assert\Length(min=6)
      */
     private $message;
 
