@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for flash_message in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success" style="text-align: center;">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+    <div class="container">
+        <br>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="https://phgcdn.com/images/uploads/MLAEH/corporatemasthead/grand-hotel-excelsior_masthead.jpg" width="460" height="345">
+                </div>
+
+                <div class="item">
+                    <img src="https://phgcdn.com/images/uploads/TYOKP/corporatemasthead/keio-plaxa-hotel-tokyo.jpg" width="460" height="345">
+                </div>
+
+                <div class="item">
+                    <img src="http://www.smartmeetings.com/wp-content/uploads/2015/05/hotel-1000-1430880870.jpg" width="460" height="345">
+                </div>
+
+                <div class="item">
+                    <img src="https://phgcdn.com/images/uploads/MUCBH/corporatemasthead/hotel-bayerischer-hof.jpg" width="460" height="345">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <br>
+        <div class="well">
+            <h1 style="text-align: center;"><span>Welcome to hotel 'PRINCESS'</span></h1>
+            HOTEL PRINCESS (4 stars) is located at the most attractive part of Bar,
+            nearby the promenade along the sea shore, and is surrounded by lush vegetation,
+            museum complex and sport terraines.
+            Rooms and apartments are comfortable and contemporarily designed,
+            with exceptional views of the marina, beach and sea, palace and mountains at the
+            town s hinterland. Hotel has 135 rooms, which offer modern comfort: mini bar, air
+            conditioner, satelite & cable TV, safety deposit box, as well as all neccessary
+            accesories and room service.
+            Choose the bathroom you want: with bath tub and shower
+            bath tub; only with bath tub or only with shower bath tub.
+            Our restaurants offer specialties of national & international cuisine,
+            various drinks, accompanied with good service. Lobby & Piano bar
+            are pleasant spaces for rest, while having a drink and conversation with
+            business partners or friends. You can enjoy and also have a drink or try some sweets
+            or cakes at the Pool bar, from which you can go out to the pool and spacious terrace of the hotel.
+            A Museum, settled in the summer residence of former Montenegrin king Nikola Petrovic, is located
+            right next to our hotel. Only 4 kilometers away from the hotel is old Bar, one of the oldest fortification
+            settlements on the south-east coast of the Adriatic Sea. Old olive tree in Mirovica, at the bottom side of
+            this ancient town, exists for more than 2000 years.
+            Other landmarks worth of visiting are: Church of St. Nicolas – part of the Archbishopric of Bar (XI century),
+            Trikohnos in center of Bar (VI century), Holy Tekla church in town of Sutomore (XIII century),
+            ruins of monastery Our Lady of Ratac on pike Ratac between Bar and Sutomore (XII century); fortress
+            Haj-Nehaj near Sutomore (XV century); Omerbašića mosque in old Bar (XVII century), islands & monasteries
+            on Skadar Lake (X – XV century).
+            During summer months one can visit various exhibitions, concerts, and poetic and theater events –
+            part of traditional manifestation “Bar summer chronicle”.
+        </div>
+    </div>
+{% endblock %}
