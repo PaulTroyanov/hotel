@@ -28,6 +28,10 @@ class ContactController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contactForm);
+            $em->flush();
+
             $this->addFlash(
                 'notice',
                 'Your message has been send! Thank you, ' . $form->get('username')->getData() . '!'
