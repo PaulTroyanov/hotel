@@ -12,7 +12,7 @@ class ContactController extends Controller
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("contact")
+     * @Route("contact", name="contact_page")
      */
     public function contactAction(Request $request)
     {

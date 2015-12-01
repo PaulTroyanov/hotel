@@ -46,4 +46,5 @@ class User
      * @ORM\Column(name="room_id", type="integer")
      */
     protected $roomId;
+
 }
