@@ -44,4 +44,16 @@ class ContactController extends Controller
         ));
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("contact/messages", name="messages_list_page")
+     */
+    public function listMessagesAction()
+    {
+        return $this->render('contact/messages.html.twig', array(
+                'messagesList' => $this->getDoctrine()->getRepository('AppBundle:ContactForm')->findAll()
+            )
+        );
+    }
+
 }

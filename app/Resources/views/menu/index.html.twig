@@ -6,6 +6,12 @@
             {{ flash_message }}
         </div>
     {% endfor %}
+
+    {% for flash_message in app.session.flashbag.get('error') %}
+        <div class="alert alert-danger" style="text-align: center;">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
     <div class="container">
         <br>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">

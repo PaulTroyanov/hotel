@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {% for user in messagesList %}
+            <div class="well">
+                <h3><span>{{ user.username }}</span> ( {{ user.email }} ) </h3>
+                <p>{{ user.message }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

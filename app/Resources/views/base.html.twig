@@ -17,12 +17,29 @@
     <nav class="navbar navbar-default">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="index">Home</a></li>
-                <li><a href="rooms">Available rooms</a></li>
-                <li><a href="gallery">Gallery</a></li>
-                <li><a href="news">News</a></li>
-                <li><a href="reviews">Reviews</a></li>
-                <li><a href="contact">Contact us</a></li>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/rooms">Available rooms</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/contact">Contact us</a></li>
+
+                {% if app.session.get('user') == true %}
+                    {% set user = app.session.get('user') %}
+                    {% if user['email'] == 'admin@example.com' and user['password'] == 'admin' %}
+                        <li><a href="/contact/messages">User messages</a></li>
+                        <li><a href="/news/create">Create news</a></li>
+                    {% endif %}
+                {% endif %}
+
+                {% if app.session.get('user') == true %}
+                    {% set user = app.session.get('user') %}
+                    <li><a href="">{{ user['name'] }}</a></li>
+                    <li><a href="/logout">Log out</a></li>
+                {% else %}
+                    <li><a href="/registration">Sign up</a></li>
+                    <li><a href="/login">Log in</a></li>
+                {% endif %}
+
             </ul>
         </div>
     </nav>

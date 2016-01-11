@@ -2,44 +2,11 @@
 
 {% block body %}
     <div class="container">
-        <div class="well">
-            <h3><span>WEEKEND PACKAGE "MIRAKUL" - 150 eur for two persons! WEEKEND PACKAGE "MIRAKUL" - 150 EUR FOR TWO PERSONS!</span></h3>
-            <p>
-                Description of the package: Two overnights for two persons, Half board included (buffet breakfast and dinner)
-                Tourist tax - included One child till 7 years – free of charge Child from 7-12 – 18,00 eur, per child and night.
-            </p>
-        </div>
-        <div class="well">
-            <h3><span>SUMMER DISCOUNT 10%</span></h3>
-            <p>
-                Summer discount on the individual prices:  * 10% discount on individual prices -
-                valid for guests that book minimum three or more nights  *
-                Guests that book five or more nights get, in addition to discount, DINNER FOR FREE
-            </p>
-        </div>
-        <div class="well">
-            <h3><span>SPECIAL OFFER</span></h3>
-            <p>
-                35,00 €, per person and night, HALF BOARD   The price is valid for minimum two-day stays in a double
-                room, Breakfast and dinner in buffet style, Supplement for a single room – 15,00 €, per day,
-                Tourist tax is not included in the price
-            </p>
-        </div>
-        <div class="well">
-            <h3><span>WOMEN'S DAY</span></h3>
-            <p>
-                Only for our dear ladies, and they beloved ones, Hotel Princess is organizing for you   WOMEN'S DAY
-                LUNCH, the price is only 15 EUR, per person,
-                with the lunch you can have a special offer for accommodation- for just 20 EUR, per person in a double room!
-            </p>
-        </div>
-        <div class="well">
-            <h3><span>WEEKEND PACKAGE "LOVE"</span></h3>
-            <p>
-                Offer No.1 – Weekend Package “Love”   "LOVE" package description: * Double room with sea
-                view, two overnights * Buffet breakfast on 14 th  and 15 th  February *
-                Romantic dinner for two in the restaurant on 14 th  Feb at 7 pm
-            </p>
-        </div>
+        {% for news in newsList %}
+            <div class="well">
+                <h3><span>{{ news.head }}</span></h3>
+                <p>{{ news.body }}</p>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
