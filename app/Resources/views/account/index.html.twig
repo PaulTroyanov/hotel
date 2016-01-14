@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for flash_message in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success" style="text-align: center;">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    <div class="container">
+        <div class="well">
+            <h3>{{ user.name }}'s account</h3>
+            <br>
+            <p><b>Name: </b>{{ user.name }}</p>
+            <p><b>Surname: </b>{{ user.surname }}</p>
+            <p><b>Email: </b>{{ user.email }}</p>
+            <p><b>Passport Id: </b>{{ user.passportId }}</p>
+            <p><b>Phone number: </b>{{ user.phoneNumber }}</p>
+            <p><a href="/account/messages">Messages</a></p>
+        </div>
+    </div>
+{% endblock %}

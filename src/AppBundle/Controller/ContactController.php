@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\ContactForm;
+use AppBundle\Entity\Messages;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -54,6 +55,48 @@ class ContactController extends Controller
                 'messagesList' => $this->getDoctrine()->getRepository('AppBundle:ContactForm')->findAll()
             )
         );
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("contact/reply")
+     */
+    public function replyAction(Request $request)
+    {
+        $replyTo = $request->getSession()->get('user');
+        $reply = new Messages();
+        $reply->setEmail($request->query->get('email'));
+        $reply->setReplyTo($replyTo['email']);
+
+        $form = $this->createFormBuilder($reply)
+            ->add('message', 'textarea', array('label' => 'Message'))
+            ->add('save', 'submit', array('label' => 'Save'))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($reply);
+            $em->flush();
+
+            $this->addFlash(
+                'notice',
+                'The message has been send!'
+            );
+
+            if ($replyTo['email'] != 'admin@example.com') {
+                return $this->redirectToRoute("user_account");
+            }
+
+            return $this->redirectToRoute("messages_list_page");
+        }
+
+        return $this->render('/contact/reply.html.twig', array(
+            'form' => $form->createView(),
+            'email' => $reply->getEmail()
+        ));
     }
 
 }

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="well">
+        <h1 style="text-align: center;"><span>Reply</span></h1>
+        <h4 style="text-align: center;"><span>to {{ email }}</span></h4>
+        {{ form(form) }}
+    </div>
+{% endblock %}
