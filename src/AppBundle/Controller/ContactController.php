@@ -17,6 +17,7 @@ class ContactController extends Controller
      */
     public function contactAction(Request $request)
     {
+        $session = $request->getSession()->get('user');
         $contactForm = new ContactForm();
 
         $form = $this->createFormBuilder($contactForm)
@@ -26,6 +27,10 @@ class ContactController extends Controller
             ->add('save', 'submit', array('label' => 'Send message'))
             ->getForm();
 
+        if (!empty($session)) {
+            $form->get('username')->setData($session['name']);
+            $form->get('email')->setData($session['email']);
+        }
         $form->handleRequest($request);
 
         if ($form->isValid()) {
